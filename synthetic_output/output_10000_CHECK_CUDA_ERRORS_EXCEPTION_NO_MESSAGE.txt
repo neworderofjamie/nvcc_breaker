@@ -1,0 +1,113 @@
+-rw-r--r-- 1 jk421 jk421_g 5450378 Oct 31 17:46 test.cc
+
+Execution times (seconds)
+ phase setup             :   0.28 (100%) usr   0.05 (83%) sys   0.33 (97%) wall   76955 kB (100%) ggc
+ TOTAL                 :   0.28             0.06             0.34              76964 kB
+
+Execution times (seconds)
+ phase setup             :   0.25 (100%) usr   0.05 (83%) sys   0.31 (97%) wall   76830 kB (100%) ggc
+ TOTAL                 :   0.25             0.06             0.32              76840 kB
+
+Execution times (seconds)
+ phase setup             :   0.00 ( 0%) usr   0.00 ( 0%) sys   0.01 ( 0%) wall    1384 kB ( 0%) ggc
+ phase parsing           :   6.22 (20%) usr   2.41 (44%) sys   8.62 (24%) wall  462773 kB (21%) ggc
+ phase lang. deferred    :   0.02 ( 0%) usr   0.00 ( 0%) sys   0.02 ( 0%) wall    2422 kB ( 0%) ggc
+ phase opt and generate  :  24.39 (80%) usr   3.04 (56%) sys  27.43 (76%) wall 1701536 kB (78%) ggc
+ phase finalize          :   0.00 ( 0%) usr   0.00 ( 0%) sys   0.07 ( 0%) wall       0 kB ( 0%) ggc
+ |name lookup            :   1.66 ( 5%) usr   0.34 ( 6%) sys   2.02 ( 6%) wall   22823 kB ( 1%) ggc
+ |overload resolution    :   0.55 ( 2%) usr   0.20 ( 4%) sys   0.90 ( 2%) wall   41890 kB ( 2%) ggc
+ garbage collection      :   0.58 ( 2%) usr   0.00 ( 0%) sys   0.57 ( 2%) wall       0 kB ( 0%) ggc
+ dump files              :   0.86 ( 3%) usr   0.19 ( 3%) sys   1.17 ( 3%) wall       0 kB ( 0%) ggc
+ callgraph construction  :   0.74 ( 2%) usr   0.22 ( 4%) sys   0.94 ( 3%) wall  153175 kB ( 7%) ggc
+ callgraph optimization  :   0.44 ( 1%) usr   0.16 ( 3%) sys   0.56 ( 2%) wall     512 kB ( 0%) ggc
+ ipa dead code removal   :   0.08 ( 0%) usr   0.00 ( 0%) sys   0.08 ( 0%) wall       0 kB ( 0%) ggc
+ ipa inheritance graph   :   0.00 ( 0%) usr   0.00 ( 0%) sys   0.01 ( 0%) wall       1 kB ( 0%) ggc
+ ipa inlining heuristics :   0.17 ( 1%) usr   0.02 ( 0%) sys   0.17 ( 0%) wall       0 kB ( 0%) ggc
+ ipa various optimizations:   0.02 ( 0%) usr   0.00 ( 0%) sys   0.00 ( 0%) wall       0 kB ( 0%) ggc
+ ipa free lang data      :   0.01 ( 0%) usr   0.00 ( 0%) sys   0.01 ( 0%) wall       0 kB ( 0%) ggc
+ ipa free inline summary :   0.01 ( 0%) usr   0.00 ( 0%) sys   0.01 ( 0%) wall       0 kB ( 0%) ggc
+ cfg construction        :   0.19 ( 1%) usr   0.01 ( 0%) sys   0.16 ( 0%) wall    9063 kB ( 0%) ggc
+ cfg cleanup             :   0.49 ( 2%) usr   0.06 ( 1%) sys   0.55 ( 2%) wall     312 kB ( 0%) ggc
+ trivially dead code     :   0.22 ( 1%) usr   0.01 ( 0%) sys   0.35 ( 1%) wall       0 kB ( 0%) ggc
+ df scan insns           :   1.24 ( 4%) usr   0.21 ( 4%) sys   1.50 ( 4%) wall     938 kB ( 0%) ggc
+ df live regs            :   0.56 ( 2%) usr   0.03 ( 1%) sys   0.68 ( 2%) wall       0 kB ( 0%) ggc
+ df reg dead/unused notes:   0.50 ( 2%) usr   0.03 ( 1%) sys   0.49 ( 1%) wall   27892 kB ( 1%) ggc
+ register information    :   0.24 ( 1%) usr   0.03 ( 1%) sys   0.20 ( 1%) wall       0 kB ( 0%) ggc
+ alias analysis          :   0.26 ( 1%) usr   0.01 ( 0%) sys   0.22 ( 1%) wall    8629 kB ( 0%) ggc
+ rebuild jump labels     :   0.23 ( 1%) usr   0.02 ( 0%) sys   0.20 ( 1%) wall       0 kB ( 0%) ggc
+ preprocessing           :   0.76 ( 2%) usr   0.61 (11%) sys   1.40 ( 4%) wall   24178 kB ( 1%) ggc
+ parser (global)         :   0.86 ( 3%) usr   0.63 (12%) sys   1.42 ( 4%) wall  170980 kB ( 8%) ggc
+ parser struct body      :   0.02 ( 0%) usr   0.01 ( 0%) sys   0.03 ( 0%) wall    5614 kB ( 0%) ggc
+ parser enumerator list  :   0.00 ( 0%) usr   0.00 ( 0%) sys   0.03 ( 0%) wall     166 kB ( 0%) ggc
+ parser function body    :   4.33 (14%) usr   1.09 (20%) sys   5.42 (15%) wall  246036 kB (11%) ggc
+ parser inl. func. body  :   0.04 ( 0%) usr   0.02 ( 0%) sys   0.07 ( 0%) wall    3784 kB ( 0%) ggc
+ parser inl. meth. body  :   0.03 ( 0%) usr   0.02 ( 0%) sys   0.03 ( 0%) wall    2291 kB ( 0%) ggc
+ template instantiation  :   0.08 ( 0%) usr   0.01 ( 0%) sys   0.11 ( 0%) wall    9641 kB ( 0%) ggc
+ early inlining heuristics:   0.01 ( 0%) usr   0.00 ( 0%) sys   0.01 ( 0%) wall       0 kB ( 0%) ggc
+ inline parameters       :   0.12 ( 0%) usr   0.05 ( 1%) sys   0.19 ( 1%) wall   21095 kB ( 1%) ggc
+ integration             :   0.01 ( 0%) usr   0.00 ( 0%) sys   0.01 ( 0%) wall       0 kB ( 0%) ggc
+ tree gimplify           :   0.34 ( 1%) usr   0.09 ( 2%) sys   0.39 ( 1%) wall  135413 kB ( 6%) ggc
+ tree eh                 :   0.35 ( 1%) usr   0.06 ( 1%) sys   0.33 ( 1%) wall   83369 kB ( 4%) ggc
+ tree CFG construction   :   0.19 ( 1%) usr   0.05 ( 1%) sys   0.26 ( 1%) wall   69421 kB ( 3%) ggc
+ tree CFG cleanup        :   0.28 ( 1%) usr   0.04 ( 1%) sys   0.41 ( 1%) wall       0 kB ( 0%) ggc
+ tree PHI insertion      :   0.02 ( 0%) usr   0.00 ( 0%) sys   0.05 ( 0%) wall   13325 kB ( 1%) ggc
+ tree SSA rewrite        :   0.20 ( 1%) usr   0.01 ( 0%) sys   0.17 ( 0%) wall   40297 kB ( 2%) ggc
+ tree SSA other          :   0.42 ( 1%) usr   0.15 ( 3%) sys   0.49 ( 1%) wall    2814 kB ( 0%) ggc
+ tree SSA incremental    :   0.25 ( 1%) usr   0.05 ( 1%) sys   0.26 ( 1%) wall       0 kB ( 0%) ggc
+ tree operand scan       :   0.57 ( 2%) usr   0.10 ( 2%) sys   0.71 ( 2%) wall   33327 kB ( 2%) ggc
+ dominance frontiers     :   0.01 ( 0%) usr   0.00 ( 0%) sys   0.04 ( 0%) wall       0 kB ( 0%) ggc
+ dominance computation   :   0.18 ( 1%) usr   0.01 ( 0%) sys   0.20 ( 1%) wall       0 kB ( 0%) ggc
+ out of ssa              :   0.32 ( 1%) usr   0.01 ( 0%) sys   0.33 ( 1%) wall    2316 kB ( 0%) ggc
+ expand vars             :   1.04 ( 3%) usr   0.02 ( 0%) sys   1.11 ( 3%) wall   21960 kB ( 1%) ggc
+ expand                  :   1.13 ( 4%) usr   0.13 ( 2%) sys   1.21 ( 3%) wall  295068 kB (14%) ggc
+ post expand cleanups    :   0.32 ( 1%) usr   0.05 ( 1%) sys   0.40 ( 1%) wall   44553 kB ( 2%) ggc
+ varconst                :   0.00 ( 0%) usr   0.02 ( 0%) sys   0.01 ( 0%) wall    2500 kB ( 0%) ggc
+ jump                    :   0.06 ( 0%) usr   0.01 ( 0%) sys   0.06 ( 0%) wall       0 kB ( 0%) ggc
+ loop init               :   0.06 ( 0%) usr   0.02 ( 0%) sys   0.09 ( 0%) wall   14382 kB ( 1%) ggc
+ loop fini               :   0.06 ( 0%) usr   0.00 ( 0%) sys   0.01 ( 0%) wall       0 kB ( 0%) ggc
+ mode switching          :   0.00 ( 0%) usr   0.00 ( 0%) sys   0.02 ( 0%) wall       0 kB ( 0%) ggc
+ integrated RA           :   4.85 (16%) usr   0.37 ( 7%) sys   4.78 (13%) wall  536894 kB (25%) ggc
+ LRA non-specific        :   1.36 ( 4%) usr   0.16 ( 3%) sys   1.73 ( 5%) wall    3595 kB ( 0%) ggc
+ LRA virtuals elimination:   0.39 ( 1%) usr   0.05 ( 1%) sys   0.39 ( 1%) wall   11251 kB ( 1%) ggc
+ LRA reload inheritance  :   0.13 ( 0%) usr   0.03 ( 1%) sys   0.16 ( 0%) wall       0 kB ( 0%) ggc
+ LRA create live ranges  :   0.58 ( 2%) usr   0.06 ( 1%) sys   0.60 ( 2%) wall    1875 kB ( 0%) ggc
+ LRA hard reg assignment :   0.21 ( 1%) usr   0.01 ( 0%) sys   0.15 ( 0%) wall       0 kB ( 0%) ggc
+ reload                  :   0.09 ( 0%) usr   0.01 ( 0%) sys   0.10 ( 0%) wall       0 kB ( 0%) ggc
+ thread pro- & epilogue  :   0.65 ( 2%) usr   0.02 ( 0%) sys   0.72 ( 2%) wall   44861 kB ( 2%) ggc
+ machine dep reorg       :   0.02 ( 0%) usr   0.02 ( 0%) sys   0.01 ( 0%) wall       0 kB ( 0%) ggc
+ shorten branches        :   0.52 ( 2%) usr   0.06 ( 1%) sys   0.65 ( 2%) wall       0 kB ( 0%) ggc
+ reg stack               :   0.05 ( 0%) usr   0.02 ( 0%) sys   0.03 ( 0%) wall       0 kB ( 0%) ggc
+ final                   :   1.20 ( 4%) usr   0.14 ( 3%) sys   1.58 ( 4%) wall   62875 kB ( 3%) ggc
+ symout                  :   0.01 ( 0%) usr   0.00 ( 0%) sys   0.03 ( 0%) wall       0 kB ( 0%) ggc
+ initialize rtl          :   0.02 ( 0%) usr   0.00 ( 0%) sys   0.01 ( 0%) wall      12 kB ( 0%) ggc
+ early local passes      :   0.00 ( 0%) usr   0.00 ( 0%) sys   0.01 ( 0%) wall       0 kB ( 0%) ggc
+ rest of compilation     :   1.60 ( 5%) usr   0.23 ( 4%) sys   1.87 ( 5%) wall   62299 kB ( 3%) ggc
+ unaccounted post reload :   0.01 ( 0%) usr   0.00 ( 0%) sys   0.02 ( 0%) wall       0 kB ( 0%) ggc
+ unaccounted late compilation:   0.02 ( 0%) usr   0.00 ( 0%) sys   0.02 ( 0%) wall       0 kB ( 0%) ggc
+ repair loop structures  :   0.02 ( 0%) usr   0.01 ( 0%) sys   0.07 ( 0%) wall       0 kB ( 0%) ggc
+ TOTAL                 :  30.63             5.45            36.16            2168126 kB
+	Command being timed: "nvcc -c -x cu -arch sm_86 -std=c++11 --compiler-options -fPIC -Wno-return-type-c-linkage -ftime-report -Xcudafe --diag_suppress=extern_entity_treated_as_static test.cc"
+	User time (seconds): 38.22
+	System time (seconds): 6.14
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:44.44
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2079972
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 925507
+	Voluntary context switches: 50
+	Involuntary context switches: 176
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 209824
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+FINISHED CPU 44.23 MEM 393360 MAXMEM 2204420 STALE 0 MAXMEM_RSS 2088956
+<time name="ALL">43660</time>

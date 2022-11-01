@@ -1,0 +1,136 @@
+#include <string>
+#include <stdexcept>
+#include <iostream>
+#include <cassert>
+
+{% if fake_cuda %}
+// Generate fake functions with CUDA-adjacent signature
+
+#include <cstring>
+#include <cstdlib>
+
+enum cudaError_t
+{
+    cudaSuccess,
+    cudaBadError,
+};
+
+enum cudaMemcpyKind
+{
+    cudaMemcpyHostToDevice,
+    cudaMemcpyDeviceToHost
+};
+
+const char *cudaGetErrorString(cudaError_t error)
+{
+    if(error == cudaBadError) {
+        return "cudaBadError";
+    }
+    else {
+        return "cudaSuccess";
+    }
+}
+
+constexpr unsigned int cudaHostAllocPortable = 8;
+
+cudaError_t cudaSetDevice(int)
+{
+    return cudaSuccess;
+}
+
+cudaError_t cudaMemcpy(void * dst, const void * src, size_t count, cudaMemcpyKind)
+{
+    std::memcpy(dst, src, count);
+        
+    return cudaSuccess;
+}
+
+template<typename T>
+cudaError_t cudaHostAlloc(T ** pHost, size_t size, unsigned)
+{
+    *pHost = (T*)std::malloc(size);
+    return cudaSuccess;
+}
+
+template<typename T>
+cudaError_t cudaMalloc(T ** devPtr, size_t size)
+{
+    *devPtr = (T*)std::malloc(size);
+    return cudaSuccess;
+}
+
+{% endif %}
+
+// ------------------------------------------------------------------------
+// Helper macro for error-checking CUDA calls
+#define CHECK_CUDA_ERRORS_ASSERT(call) {\
+    cudaError_t error = call;\
+    assert(error == cudaSuccess); \
+}
+
+#define CHECK_CUDA_ERRORS_ABORT(call) {\
+    cudaError_t error = call;\
+    if(error != cudaSuccess) {\
+        std::cerr << __FILE__ << ": " << __LINE__ << ": cuda error " << error << ": " << cudaGetErrorString(error) << std::endl;\
+        std::abort();\
+    }\
+}
+
+#define CHECK_CUDA_ERRORS_ABORT_NO_PRINT(call) {\
+    cudaError_t error = call;\
+    if(error != cudaSuccess) {\
+        std::abort();\
+    }\
+}
+
+#define CHECK_CUDA_ERRORS_EXCEPTION(call) {\
+    cudaError_t error = call;\
+    if(error != cudaSuccess) {\
+        throw std::runtime_error(__FILE__": " + std::to_string(__LINE__) + ": cuda error " + std::to_string(error) + ": " + cudaGetErrorString(error));\
+    }\
+}
+
+#define CHECK_CUDA_ERRORS_EXCEPTION_NO_MESSAGE(call) {\
+    cudaError_t error = call;\
+    if(error != cudaSuccess) {\
+        throw std::runtime_error(cudaGetErrorString(error));\
+    }\
+}
+
+#define CHECK_CUDA_ERRORS_ALLOC {{check_cuda_errors}}
+#define CHECK_CUDA_ERRORS_PUSH_PULL {{check_cuda_errors}}
+
+// Array declarations
+{% for array in arrays %}
+{% if host %}
+float *{{array.name}};
+{% endif %}
+
+float *d_{{array.name}};
+{% endfor %}
+
+
+// Push and pull functions
+{% if host %}
+{% for array in arrays %}
+void push{{array.name}}ToDevice() {
+    CHECK_CUDA_ERRORS_PUSH_PULL(cudaMemcpy(d_{{array.name}}, {{array.name}}, {{array.size}} * sizeof(float), cudaMemcpyHostToDevice));
+}
+
+void pull{{array.name}}FromDevice() {
+    CHECK_CUDA_ERRORS_PUSH_PULL(cudaMemcpy({{array.name}}, d_{{array.name}}, {{array.size}}  * sizeof(float), cudaMemcpyDeviceToHost));
+}
+{% endfor %}
+{% endif %}
+
+void allocateMem() 
+{
+    CHECK_CUDA_ERRORS_ALLOC(cudaSetDevice(0));
+    
+    {% for array in arrays %}
+    {% if host %}
+    CHECK_CUDA_ERRORS_ALLOC(cudaHostAlloc(&{{array.name}}, {{array.size}} * sizeof(float), cudaHostAllocPortable));
+    {% endif %}
+    CHECK_CUDA_ERRORS_ALLOC(cudaMalloc(&d_{{array.name}}, {{array.size}} * sizeof(float)));
+    {% endfor %}    
+}

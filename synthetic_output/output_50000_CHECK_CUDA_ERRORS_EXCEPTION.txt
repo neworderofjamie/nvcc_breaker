@@ -1,0 +1,12 @@
+-rw-r--r-- 1 jk421 jk421_g 27690356 Oct 31 18:15 test.cc
+
+Execution times (seconds)
+ phase setup             :   2.05 (100%) usr   0.20 (91%) sys   2.25 (99%) wall  504367 kB (100%) ggc
+ TOTAL                 :   2.05             0.22             2.27             504376 kB
+
+Execution times (seconds)
+ phase setup             :   2.04 (100%) usr   0.18 (90%) sys   2.23 (99%) wall  504243 kB (100%) ggc
+ TOTAL                 :   2.04             0.20             2.25             504252 kB
+nvcc: Terminated
+MEM_RSS CPU 1980.49 MEM 42242652 MAXMEM 42242652 STALE 0 MAXMEM_RSS 41945688
+<time name="ALL">1979980</time>

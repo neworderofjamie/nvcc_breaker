@@ -93,7 +93,7 @@ cudaError_t cudaMalloc(T ** devPtr, size_t size)
 #define CHECK_CUDA_ERRORS_EXCEPTION_NO_MESSAGE(call) {\
     cudaError_t error = call;\
     if(error != cudaSuccess) {\
-        throw std::runtime_error(cudaGetErrorString(error));\
+        throw std::runtime_error("");\
     }\
 }
 

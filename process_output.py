@@ -25,9 +25,16 @@ with open("summary.csv", "w") as csv_file:
                     l = l.lstrip()
                     
                     if l.startswith("Elapsed (wall clock) time (h:mm:ss or m:ss):"):
-                        hours, rest = l[45:].split(":")
-                        minutes, seconds = rest.split(".")
-                        wall_clock_sec = timedelta(hours=int(hours), minutes=int(minutes), seconds=int(seconds)).total_seconds()
+                        components = l[45:].split(":")
+                        if len(components) == 3:
+                            hours = int(components[0])
+                            minutes = int(components[1])
+                            seconds = float(components[2])
+                        else:
+                            hours = 0
+                            minutes = int(components[0])
+                            seconds = float(components[1])
+                        wall_clock_sec = timedelta(hours=hours, minutes=minutes, seconds=seconds).total_seconds()
                     elif l.startswith("Maximum resident set size (kbytes):"):
                         resident_set_mbyte = int(l[36:]) / 1024
                 name_fields = name_parser.match(path.basename(n))
